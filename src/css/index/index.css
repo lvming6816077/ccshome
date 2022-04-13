@@ -1,0 +1,192 @@
+  html,
+  body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background: #eee;
+    font-family: Source Han Sans CN, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+  }
+
+
+  .banner1 .content {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    white-space: nowrap;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+  }
+  .banner1 .ic {
+    width: 187px;
+    height: 201px;
+    position: absolute;
+    right: -95px;
+    top: 16px;
+    background-image: url('../../imgs/index/ic1.png');
+    background-size: cover;
+  }
+
+
+
+  .banner2 .sc {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    background-image: url('../../imgs/index/banner2.png');
+    background-size: cover;
+    transform:scale(1.1);
+    transition: all ease-out 10s;
+  }
+
+  .banner2 .scdown {
+    transform:scale(1);
+  }
+  .banner2 .content {
+    position: absolute;
+    left: 184px;
+    top:294px;
+    z-index: 3;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .banner2 .p1 {
+    position: absolute;
+    font-size: 66px;
+    left: 76px;
+    top: 11px;
+
+  }
+  .banner2 .p2 {
+    position: absolute;
+    left: 222px;
+    top: 107px;
+    font-weight: bold;
+    font-size: 60px;
+  }
+  .banner2 .ic {
+    width: 232px;
+    height: 261px;
+    position: absolute;
+    left: -30px;
+    top: 16px;
+    background-image: url('../../imgs/index/ic2.png');
+    background-size: cover;
+  }
+
+
+
+
+  .banner3 .content {
+    position: absolute;
+    left: 321px;
+    top:173px;
+    z-index: 2;
+    color: #0055ae;
+    white-space: nowrap;
+  }
+  .banner3 .p1 {
+    position: absolute;
+    font-size: 66px;
+    left: 76px;
+    top: 11px;
+
+  }
+  .banner3 .p2 {
+    position: absolute;
+    left: 252px;
+    top: 104px;
+    font-weight: bold;
+    font-size: 60px;
+  }
+  .banner3 .ic {
+    width: 241px;
+    height: 260px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url('../../imgs/index/ic3.png');
+    background-size: cover;
+  }
+
+
+  .banner4 .content {
+    position: absolute;
+    top:173px;
+    z-index: 2;
+    color: #fff;
+    white-space: nowrap;
+    width: 669px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .banner4 .p1 {
+    position: absolute;
+    font-size: 60px;
+    top: 5px;
+    left: 10px;
+  }
+  .banner4 .p2 {
+    position: absolute;
+    font-size: 60px;
+    top: 93px;
+    left: 101px;
+    font-weight: bold;
+  }
+  .banner4 .ic {
+    width: 236px;
+    height: 260px;
+    position: absolute;
+    right: -11px;
+    top: 39px;
+    background-image: url('../../imgs/index/ic4.png');
+    background-size: cover;
+  }
+
+
+  .video {
+    transform-origin: 0 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+  }
+  .page3 {
+    background-size: cover;
+    background-image: url('../../imgs/index/page3.png');
+  }
+  .page3 .page-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
