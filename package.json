@@ -12,7 +12,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-cssmin": "^0.2.0",
-    "gulp-imagemin": "^8.0.0"
+    "gulp-imagemin": "^7.1.0"
   },
   "devDependencies": {
     "@tcstory/postcss-px-to-viewport": "^0.3.0",
