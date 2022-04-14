@@ -5,8 +5,7 @@ var pxtoviewport = require('@tcstory/postcss-px-to-viewport');
 var del = require('del');
 var cssmin = require('gulp-cssmin');
 var imagemin = require('gulp-imagemin'); //压缩图片
-// var cssnext = require('postcss-cssnext');
-// var shortcss = require('postcss-short');
+var htmlmin = require('gulp-htmlmin');//压缩html
 
 gulp.task('clean', () => {
     return del(['dist'])
@@ -20,6 +19,11 @@ gulp.task('imagemin', function() {
     return gulp.src('./dist/imgs/**/*.{jpg,png}')
         .pipe(imagemin())
         .pipe(gulp.dest("./dist/imgs"))
+});
+gulp.task('htmlmin', () => {
+  return gulp.src('./dist/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('css', function() {
@@ -44,4 +48,4 @@ gulp.task('css', function() {
   .pipe(gulp.dest('dist/css'));
 })
 
-gulp.task('default', gulp.series(['clean','copy','css','imagemin']));
+gulp.task('default', gulp.series(['clean','copy','css',/*'imagemin',*/'htmlmin']));

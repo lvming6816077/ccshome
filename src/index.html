@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Swiper demo</title>
+    <title>瑞茂通</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
@@ -15,6 +15,9 @@
       rel="stylesheet"
       href="./lib/animate.min.css"
     />
+    <link rel="preload" as="video" href="./imgs/index/video/banner1.mp4">
+    <link rel="preload" as="image" href="./imgs/index/1000.jpg">
+    <link rel="preload" as="image" href="./imgs/index/video/2.gif">
 
     <link rel="stylesheet" type="text/css" href="./css/index/index.css">
 
@@ -31,7 +34,8 @@
               <div class="swiper-container" id="firstslide">
                   <div class="swiper-wrapper">
                       <div class="swiper-slide banner1 banner">
-                        <video class="video" muted autoplay loop src="./imgs/index/video/banner1.mp4"></video>
+                        <video class="video" muted autoplay loop preload="auto" src="./imgs/index/video/banner1.mp4" poster="./imgs/index/1000.jpg"></video>
+                        <div class="earth"></div>
                         <div class="content">
                           <div class="ic"></div>
                           <p class="p1">供应链产业互联网平台</p>
@@ -39,7 +43,7 @@
                       </div>
                       <div class="swiper-slide banner2 banner">
                         <div class="video"><div class="sc"></div></div>
-                        <div class="content">
+                        <div class="content ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.2s">
                           <div class="ic"></div>
                           <p class="p1">创新供应链 服务产业链</p>
                           <p class="p2">创造价值链</p>
@@ -47,7 +51,7 @@
                       </div>
                       <div class="swiper-slide banner3 banner">
                         <video class="video" muted autoplay loop src="./imgs/index/video/banner3.mp4"></video>
-                        <div class="content">
+                        <div class="content ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.2s">
                           <div class="ic"></div>
                           <p class="p1">新科技，新手段</p>
                           <p class="p2">为客户将本增效</p>
@@ -55,7 +59,7 @@
                       </div>
                       <div class="swiper-slide banner4 banner">
                         <video class="video" muted autoplay loop src="./imgs/index/video/banner4.mp4"></video>
-                        <div class="content">
+                        <div class="content ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.2s">
                           <div class="ic"></div>
                           <p class="p1">优化资源配置</p>
                           <p class="p2">促进可持续化发展</p>
@@ -65,9 +69,9 @@
                   <div class="swiper-pagination swiper-pagination1"></div>
               </div>
           </div>
-          <div class="swiper-slide"><p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">Slide 2</p></div>
+          <!-- <div class="swiper-slide"><p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">Slide 2</p></div> -->
           <div class="swiper-slide page3">
-            <img src="./imgs/index/video/2.gif" class="page-img"/>
+            <img data-src="./imgs/index/video/2.gif" class="page-img"/>
           </div>
           <div class="swiper-slide" id="worldMap">Slide 4</div>
         </div>
