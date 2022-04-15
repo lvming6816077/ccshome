@@ -46,11 +46,11 @@
   }
   @keyframes balloon3 {
       0%,100% {
-          transform: translateY(6px) rotate(6deg)
+          transform: translateX(-6px) translateY(6px) rotate(6deg)
       }
 
       50% {
-          transform: translateY(-10px) rotate(-8deg)
+          transform: translateX(2px) translateY(-10px) rotate(-8deg)
       }
   }
   .banner1 .content {
@@ -216,4 +216,74 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  .world-map {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform:translateY(80px);
+    transition: all 0.5s;
+  }
+  .page4 {
+    background-image: url('../../imgs/index/mapbg.png');
+    background-size: cover;
+    position: relative;
+  }
+  .page4 .p1 {
+    font-size: 64px;
+    margin-top:35px;
+  }
+  .page4 .divider {
+    width: 100px;
+    height: 7px;
+    margin: 0 auto;
+    background-color: #005bb3;
+    margin-top: 9px;
+  }
+  .page4 .bottom-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+  }
+  .page4 .inner {
+    width: 100%;
+    height: 70px;
+  }
+  .page4 .item {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    font-size: 36px;
+    color: #fff;
+    line-height: 70px;
+    cursor: pointer;
+  }
+  .page4 .you {
+    background-color: #005bb3;
+  }
+  .page4 .mei {
+    background-color: #05ac7b;
+  }
+  .page4 .hide {
+    display: none;
+  }
+  .page4 .desc {
+    font-size: 22px;
+    height: 140px;
+    width: 100%;
+    color: #fff;
+    line-height: 130px;
+
+  }
+  .page4 .desc.mei {
+    background-color: #05ac7bc9;
+  }
+  .page4 .desc.you {
+    background-color:#005bb3cc;
   }

@@ -1,12 +1,18 @@
-var chart = echarts.init(document.getElementById('worldMap'));
+var chartyou = echarts.init(document.getElementById('youMap'));
+var chartmei = echarts.init(document.getElementById('meiMap'));
+
+var wenliImage = new Image().src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAABKADAAQAAAABAAAABAAAAADFbP4CAAAAL0lEQVQIHWN8/PgxJwMDgxAQg8A7FiAh9OvXL2YQj42NTYgJxEAGIBXvQDJQwXcAg24I5a1jPH8AAAAASUVORK5CYII='
+
+var beijingicon = 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAwCAMAAABDh1hgAAAAilBMVEUAAADpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVnpWVlIUkd2AAAALXRSTlMABC0V9wvl+/GxNBrc1KqYXCfhzb2kf3ltCNmSdGVTS0M7H+rnxLaca6aJgg+LLX/9AAABU0lEQVQ4y33U6XaDIBAF4It7NKl1S2L2Peky7/96bUnDgALfPzj3OMiMYqDI8yCEU7VoI/pznmytsfxGmqg8YSAuaSDaCOiCGY21erVjRjYzzgScGGTi1zmm5PKGp5Lc3p9lyCPp8WtCPksARUqs2VZhsKn1EwNYEltA6jtigVFnjn9C29wAiVpMBTc8Ursd4vFDzHdocOLIHmyhdmtUHDmC8UskKPSbZGs+IUSqNUQR3LYrsFKLNFCRd1JK4M6rVYGnPDPK74nVO1nlEfFWGgLiYnT2o5xko4mZk89BDt3Fk2ghPdyJqIIkGmfkS32IrsS05+t2nlX5TqyJDpqdLZGF0N0skS0Mp2iUuAowc8y47wNiRqZPjBzNRB1j7G5E9rAIz4MZYLZpzArYtdr/wKF6XU4jYMUDmOZw6lcysobHQY54DJ+OiHbwChO+Epc4EDD9ALq3mhVp89lCAAAAAElFTkSuQmCC'
 // 获取地图中起点和终点的坐标，以数组形式保存下来
 var convertData = function(data) {
     var coord = []
     for (var i = 0; i < data.length; i++) {
         var dataItem = data[i];
         var fromCoord = geoCoordMap[dataItem.name];
-        console.log(fromCoord,dataItem.name)
+
         coord.push(fromCoord)
+        console.log(coord,dataItem)
 
     }
     
@@ -88,6 +94,8 @@ var geoCoordMap = {
     '阿塞拜疆': [47.576927, 40.143105],
     '亚美尼亚': [45.038189, 40.069099],
     '摩尔多瓦': [28.369885, 47.411631],
+    '巴西':[-48.0073971,-15.7215857],
+    '厄瓜多尔':[-86.1396223,-1.3528886],
     //欧美国家
     '挪威': [8.468945999999999, 60.47202399999999],
     '丹麦': [9.501785, 56.26392],
@@ -118,8 +126,19 @@ for (var i = 0 ; i < pathArr.length-1 ; i++) {
     r.push({name:pathArr[i+1].name})
     sdata.push(convertData(r))
 }
-// console.log(sdata)
-chart.setOption({
+var pathYouArr = [{"name":"俄罗斯","size":24},{"name":"日本","size":6},{"name":"韩国","size":6},{"name":"菲律宾","size":6},{"name":"澳大利亚","size":6},{"name":"印度尼西亚","size":6},{"name":"新加坡","size":6},{"name":"马来西亚","size":6},{"name":"越南","size":6},{"name":"印度","size":6},{"name":"阿联酋","size":6,"position":"bottom"},{"name":"卡塔尔","size":6},{"name":"巴西","size":6},{"name":"厄瓜多尔","size":6},{"name":"美国","size":6},{"name":"加拿大","size":6},{"name":"比利时","size":6,"position":"bottom"},{"name":"荷兰","size":6},{"name":"挪威","size":6},{"name":"俄罗斯","size":10}]
+var sdatayou = []
+for (var i = 0 ; i < pathYouArr.length-1 ; i++) {
+    var r = []
+
+    r.push({name:pathYouArr[i].name})
+    r.push({name:pathYouArr[i+1].name})
+
+    sdatayou.push(convertData(r))
+}
+
+// 油品地图
+var optionyou = {
     backgroundColor: 'transparent',
     title: {
         //text: '中国国际贸易促进委员会',
@@ -143,7 +162,7 @@ chart.setOption({
         itemStyle: { // 每个区域的样式
             borderWidth:0,
             normal: {
-                areaColor: '#196bba',
+                areaColor:'#196bba',
                 borderColor: '#196bba',
                 
             },
@@ -159,8 +178,8 @@ chart.setOption({
         regions: [{ // 选中的区域
             name: 'China',
             itemStyle: { // 高亮时候的样式
-                areaColor: '#1ae4ff',
-                borderColor: '#1ae4ff',
+                areaColor: '#00deff',
+                borderColor: '#00deff',
                 
             },
             label: { // 高亮的时候不显示标签
@@ -171,9 +190,189 @@ chart.setOption({
         }]
     },
     series: [{
+        type: 'scatter',
+        coordinateSystem: 'geo',
+        itemStyle: {
+          normal: {
+            opacity: 1,
+          },
+        },
+        symbol: beijingicon,
+        symbolSize: [17, 24],
+
+
+        data:[[116.4, 39.9]],
+        zlevel: 9,
+
+    },{
+        type: 'map',
+        map: 'world',
+        zlevel: 2,
+        itemStyle: { // 每个区域的样式
+            borderWidth:0,
+            normal: {
+                areaColor: {
+                  image: wenliImage, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
+                  repeat: 'repeat' // 是否平铺，可以是 'repeat-x', 'repeat-y', 'no-repeat'
+                },
+                borderWidth:0,
+                borderColor: '#196bba',
+                
+            },
+        },
+        emphasis:{
+            disabled:true,
+        },
+
+    },{
         // 白色航线特效图
         type: 'lines',
-        zlevel: 1, // 用于分层，z-index的效果
+        zlevel: 3, // 用于分层，z-index的效果
+        // effect: {
+        //     show: true, // 动效是否显示
+        //     period: 6, // 特效动画时间
+        //     trailLength: 0.7, // 特效尾迹的长度
+        //     color: 'red', // 特效颜色
+        //     symbolSize: 3 // 特效大小
+        // },
+        // polyline:true,
+        lineStyle: {
+            normal: { // 正常情况下的线条样式
+                color: '#01519e',
+                opacity: 1,
+                width: 1, // 因为是叠加效果，要是有宽度，线条会变粗，白色航线特效不明显
+                curveness: 0.4 // 线条曲度
+            }
+        },
+        data:sdatayou // 特效的起始、终点位置
+    },{ // 散点效果
+        type: 'effectScatter',
+        coordinateSystem: 'geo', // 表示使用的坐标系为地理坐标系
+        zlevel: 4,
+        rippleEffect: {
+            brushType: 'fill', // 波纹绘制效果
+            scale:8,
+            number:2,
+            period: 10
+        },
+        label: {
+            normal: { // 默认的文本标签显示样式
+                show: true,
+                color:'#196bba',
+                textBorderColor:'#fff',
+                textBorderWidth:3,
+                position: 'top', // 标签显示的位置
+                formatter: '{b}' // 标签内容格式器
+            }
+        },
+        itemStyle: {
+            normal: {
+                color: '#00deff'
+            }
+        },
+        data: pathYouArr.slice(1).map(function(dataItem) {
+            return {
+                name: dataItem.name,
+                value: geoCoordMap[dataItem.name], // 起点的位置
+                symbolSize: dataItem.size, // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
+                label:{
+                    position:dataItem.position || 'top'
+                }
+            };
+        })
+    }], // 将之前处理的数据放到这里
+}
+// 煤炭地图
+var optionmei = {
+    backgroundColor: 'transparent',
+    title: {
+        //text: '中国国际贸易促进委员会',
+        //subtext: '国别资讯',
+        textStyle: {
+            color: '#fff',
+            fontSize: 20
+        },
+        top: '10px',
+        left: '10px'
+    },
+    geo: {
+        map: 'world', // 与引用进来的地图js名字一致
+        roam: false, // 禁止缩放平移
+        zoom:1,
+        label: {
+            emphasis: {
+                show: false
+            }
+        },
+        itemStyle: { // 每个区域的样式
+            borderWidth:0,
+            normal: {
+                areaColor:'#196bba',
+                borderColor: '#196bba',
+                
+            },
+        },
+        emphasis:{
+            disabled:true,
+            // itemStyle: {
+            //     // color: '#333FFF',
+            //     shadowBlur: 20,//发光图形阴影的模糊大小
+            //     shadowColor: 'rgba(0, 147, 252, 1)'//阴影颜色
+            // }
+        },
+        regions: [{ // 选中的区域
+            name: 'China',
+            itemStyle: { // 高亮时候的样式
+                areaColor: '#05ac7b',
+                borderColor: '#05ac7b',
+                
+            },
+            label: { // 高亮的时候不显示标签
+                emphasis: {
+                    show: false
+                }
+            }
+        }]
+    },
+    series: [{
+        type: 'scatter',
+        coordinateSystem: 'geo',
+        itemStyle: {
+          normal: {
+            opacity: 1,
+          },
+        },
+        symbol: beijingicon,
+        symbolSize: [17, 24],
+
+
+        data:[[116.4, 39.9]],
+        zlevel: 9,
+
+    },{
+        type: 'map',
+        map: 'world',
+        zlevel: 2,
+        itemStyle: { // 每个区域的样式
+            borderWidth:0,
+            normal: {
+                areaColor: {
+                  image: wenliImage, // 支持为 HTMLImageElement, HTMLCanvasElement，不支持路径字符串
+                  repeat: 'repeat' // 是否平铺，可以是 'repeat-x', 'repeat-y', 'no-repeat'
+                },
+                borderWidth:0,
+                borderColor: '#196bba',
+                
+            },
+        },
+        emphasis:{
+            disabled:true,
+        },
+
+    },{
+        // 白色航线特效图
+        type: 'lines',
+        zlevel: 3, // 用于分层，z-index的效果
         // effect: {
         //     show: true, // 动效是否显示
         //     period: 6, // 特效动画时间
@@ -227,4 +426,12 @@ chart.setOption({
             };
         })
     }], // 将之前处理的数据放到这里
-});
+}
+
+chartyou.setOption(optionyou);
+chartmei.setOption(optionmei);
+$('#meiMap').css('opacity','0')
+
+
+
+
