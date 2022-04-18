@@ -1,6 +1,5 @@
 
-  $(function(){
-      var changeSize = function () {
+var changeSize = function () {
       var percentW = document.documentElement.clientWidth / 1920
 
       var percentH = document.documentElement.clientHeight / 1050
@@ -79,4 +78,3 @@
     },function(){
       $('.desc').hide()
     })
-  })
